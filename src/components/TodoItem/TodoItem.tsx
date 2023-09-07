@@ -49,7 +49,6 @@ const TodoItem: React.FC<TodoItemProps> = ({
       const trimmedTitle = title.trim();
       if (trimmedTitle) {
         onTodoEdit(todo.id, trimmedTitle);
-        console.log(title);
       } else {
         onTodoDestroy(todo.id);
       }
@@ -69,6 +68,7 @@ const TodoItem: React.FC<TodoItemProps> = ({
       <div className="view">
         <input
           className="toggle"
+          data-testid="toggle"
           type="checkbox"
           checked={todo.completed}
           onChange={handleToggleClick}

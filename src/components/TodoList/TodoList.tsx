@@ -34,6 +34,7 @@ const TodoList: React.FC<TodoListProps> = ({
       <input
         id="toggle-all"
         className="toggle-all"
+        data-testid="toggle-all"
         type="checkbox"
         checked={completed}
         onChange={onTodoToggleAll}
