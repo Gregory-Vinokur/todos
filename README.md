@@ -24,4 +24,5 @@
 
 ## Приложение
 
-![todos](https://github.com/Gregory-Vinokur/todos/assets/98179706/1dce5ef7-6e12-44b2-98f2-29024686336f)
+![todos](https://github.com/Gregory-Vinokur/todos/assets/98179706/6d45bdce-751d-4115-b440-3b8ebb2faf99)
+
