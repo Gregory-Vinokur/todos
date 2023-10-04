@@ -6,9 +6,9 @@ type TodoListProps = {
   todos: ITodo[];
   filter: string;
   onTodoToggleAll: () => void;
-  onTodoToggle: (id: number, completed: boolean) => void;
-  onTodoEdit: (id: number, title: string) => void;
-  onTodoDestroy: (id: number) => void;
+  onTodoToggle: (id: string, completed: boolean) => void;
+  onTodoEdit: (id: string, title: string) => void;
+  onTodoDestroy: (id: string) => void;
 };
 
 const TodoList: React.FC<TodoListProps> = ({

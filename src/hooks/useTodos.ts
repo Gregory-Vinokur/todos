@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ITodo } from '../interfaces/ITodo';
 import { LOCAL_STORAGE_KEY } from '../constants/constants';
+import { v4 as uuidv4 } from 'uuid';
 
 export function useTodos() {
   const [todos, setTodos] = useState<ITodo[]>([]);
@@ -45,24 +46,22 @@ export function useTodos() {
   }, []);
 
   useEffect(() => {
-    if (todos.length > 0) {
-      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos));
-    }
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos));
   }, [todos]);
 
   const handleTodoCreate = (title: string) => {
-    const newTodo = { id: todos.length + 1, title, completed: false };
+    const newTodo = { id: uuidv4(), title, completed: false };
     setTodos([...todos, newTodo]);
   };
 
-  const handleTodoEdit = (id: number, title: string) => {
+  const handleTodoEdit = (id: string, title: string) => {
     const updatedTodos = todos.map((todo) =>
       todo.id === id ? { ...todo, title } : todo
     );
     setTodos(updatedTodos);
   };
 
-  const handleTodoToggle = (id: number, completed: boolean) => {
+  const handleTodoToggle = (id: string, completed: boolean) => {
     const updatedTodos = todos.map((todo) =>
       todo.id === id ? { ...todo, completed } : todo
     );
@@ -77,7 +76,7 @@ export function useTodos() {
     setTodos(updatedTodos);
   };
 
-  const handleTodoDestroy = (id: number) => {
+  const handleTodoDestroy = (id: string) => {
     const updatedTodos = todos.filter((todo) => todo.id !== id);
     setTodos(updatedTodos);
   };
